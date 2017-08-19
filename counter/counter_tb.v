@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
+// Company: VirtualSamaj
 // Engineer: http://www.asic-world.com/verilog/art_testbench_writing.html
 // 
 // Create Date: 08/13/2017 03:47:15 PM
 // Design Name: 
-// Module Name: TestBench
+// Module Name: counter_tb
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 

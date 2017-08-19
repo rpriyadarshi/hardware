@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: VirtualSamaj
+// Engineer: Rohit Priyadarshi
 // 
 // Create Date: 08/14/2017 11:15:14 PM
 // Design Name: 
-// Module Name: TestBench
+// Module Name: comparator_tb
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 

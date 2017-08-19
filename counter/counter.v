@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Company: VirtualSamaj
+// Engineer: Rohit Priyadarshi
 // 
 // Create Date: 08/13/2017 03:28:34 PM
 // Design Name: 

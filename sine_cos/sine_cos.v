@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
+// Company: VirtualSamaj
 // Engineer: http://www.edaboard.com/thread39599.html
 // 
 // Create Date: 08/15/2017 09:31:24 AM
