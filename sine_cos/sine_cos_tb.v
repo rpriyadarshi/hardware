@@ -19,28 +19,26 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module sine_cos_tb();
+module sine_cos_tb #(parameter WIDTH = 8) ();
     reg clk;
     reg reset;
     reg en;
-    wire [7:0] sine, sine_u;
-    wire [7:0] cos, cos_u;
+    wire [WIDTH-1:0] sine;
+    wire [WIDTH-1:0] cos;
     
-    sine_cos U0 (
+    sine_cos #(WIDTH) U0 (
         .clk(clk),
         .reset(reset),
         .en(en),
         .sine(sine),
-        .cos(cos),
-        .sine_u(sine_u),
-        .cos_u(cos_u)
+        .cos(cos)
     );
 
     initial begin
         clk = 0; reset = 0; en = 0;
         #5 reset = 1;
         #10 en = 1;
-        #5000 $finish;
+        #10000 $finish;
     end
 
     always begin
