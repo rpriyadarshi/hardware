@@ -57,6 +57,6 @@ module slope_tb #(parameter WIDTH = 16) ();
     end
     
     always begin
-        #5 clk = ~clk;
+        #25 clk = ~clk;
     end
 endmodule

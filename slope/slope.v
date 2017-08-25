@@ -22,21 +22,29 @@
 module slope #(parameter WIDTH = 16) (
     input clk,
     input [WIDTH-1:0] datain,
-    output eq,
-    output pos,
-    output neg,
+    output reg eq,
+    output reg pos,
+    output reg neg,
     output posen,
     output negen
     );
-    
+        
     reg [WIDTH-1:0] prev_data;
+    wire lt_temp, gt_temp, eq_temp;
     
+    always @(posedge clk)
+    begin
+        pos <= lt_temp;
+        neg <= gt_temp;
+        eq <= eq_temp;
+    end
+
     comparator #(WIDTH) U0 (
         .a(prev_data),
         .b(datain),
-        .eq(eq),
-        .lt(pos),
-        .gt(neg)
+        .eq(eq_temp),
+        .lt(lt_temp),
+        .gt(gt_temp)
         );
 
     reg prev_pos, prev_neg;
