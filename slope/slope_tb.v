@@ -23,20 +23,16 @@ module slope_tb #(parameter WIDTH = 16) ();
     reg clk;
     reg reset;
     reg en;
-    wire eq;
-    wire pos;
-    wire neg;
     wire posen;
     wire negen;
     wire [WIDTH-1:0] sine;
     wire [WIDTH-1:0] cos;
-    
+    wire [WIDTH-1:0] dataout;
+
     slope #(WIDTH) U0 (
         .clk(clk),
         .datain(sine),
-        .eq(eq),
-        .pos(pos),
-        .neg(neg),
+        .dataout(dataout),
         .posen(posen),
         .negen(negen)
     );
