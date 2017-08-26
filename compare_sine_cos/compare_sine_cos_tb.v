@@ -55,6 +55,6 @@ module compare_sine_cos_tb ();
     end
 
     always begin
-        #5 clk = ~clk;
+        #25 clk = ~clk;
     end
 endmodule

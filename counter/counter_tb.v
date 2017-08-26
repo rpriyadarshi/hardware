@@ -37,7 +37,7 @@ module counter_tb();
     end
     
     always begin
-        #5 clk = !clk;
+        #25 clk = !clk;
     end
     
     initial begin

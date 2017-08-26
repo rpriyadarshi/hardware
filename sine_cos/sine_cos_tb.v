@@ -42,7 +42,7 @@ module sine_cos_tb #(parameter WIDTH = 8) ();
     end
 
     always begin
-        #5 clk = ~clk;
+        #25 clk = ~clk;
     end
 
 endmodule
