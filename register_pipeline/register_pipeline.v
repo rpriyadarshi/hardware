@@ -23,11 +23,12 @@
 module register_pipeline #(parameter WIDTH = 16, parameter SIZE = 8) (
     input clk,
     input [WIDTH-1:0] datain,
-    output reg [WIDTH-1:0] dataout
+    output [WIDTH-1:0] dataout
     );
     
     reg [WIDTH-1:0] array [SIZE-1:0];
-   
+    assign dataout = array[SIZE-1];
+    
     genvar i;
     generate
         for (i = 0; i < SIZE; i = i + 1) begin : pipe
@@ -35,9 +36,6 @@ module register_pipeline #(parameter WIDTH = 16, parameter SIZE = 8) (
                 array[i+1] <= array[i];
                 if (i == 0) begin
                     array[i] <= datain;
-                end
-                else if (i == SIZE-1) begin
-                    dataout <= array[i];
                 end
             end
         end

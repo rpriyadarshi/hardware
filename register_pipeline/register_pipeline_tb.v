@@ -36,7 +36,7 @@ module register_pipeline_tb();
     end
 
     always begin
-        #5 clk = !clk;
+        #25 clk = !clk;
     end
     
     initial begin
@@ -50,7 +50,7 @@ module register_pipeline_tb();
     end
     
     initial begin
-        #200 $finish;
+        #10000 $finish;
     end
     
     initial begin
