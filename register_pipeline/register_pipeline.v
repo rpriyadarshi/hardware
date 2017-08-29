@@ -22,6 +22,8 @@
 
 module register_pipeline #(parameter WIDTH = 16, parameter SIZE = 8) (
     input clk,
+    input reset,
+    input enable,
     input [WIDTH-1:0] datain,
     output [WIDTH-1:0] dataout
     );
@@ -31,11 +33,13 @@ module register_pipeline #(parameter WIDTH = 16, parameter SIZE = 8) (
     
     genvar i;
     generate
-        for (i = 0; i < SIZE; i = i + 1) begin : pipe
+        for (i = 0; i < SIZE-1; i = i + 1) begin : pipe
             always @(posedge clk) begin
-                array[i+1] <= array[i];
-                if (i == 0) begin
-                    array[i] <= datain;
+                if (enable) begin
+                    array[i+1] <= array[i];
+                    if (i == 0) begin
+                        array[i] <= datain;
+                    end
                 end
             end
         end

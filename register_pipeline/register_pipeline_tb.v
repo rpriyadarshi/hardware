@@ -20,20 +20,20 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module register_pipeline_tb();
+module register_pipeline_tb #(parameter WIDTH = 16, parameter SIZE = 8)();
     reg clk;
-    reg [15:0] datain;
-    wire [15:0] dataout;
+    reg reset;
+    reg enable;
+    reg [WIDTH-1:0] datain;
+    wire [WIDTH-1:0] dataout;
 
-    register_pipeline U0 (
+    register_pipeline #(WIDTH, SIZE) U0 (
         .clk(clk),
+        .reset(reset),
+        .enable(enable),
         .datain(datain),
         .dataout(dataout)
     );
-
-    initial begin
-        clk = 0;
-    end
 
     always begin
         #25 clk = !clk;
@@ -42,15 +42,15 @@ module register_pipeline_tb();
     initial begin
         $dumpfile("counter.vcd");
         $dumpvars;
-    end
-    
-    initial begin
         $display("\t\ttime,\tclk\tdatain,\tdataout");
         $monitor("%d,\t%b,\t%d,\t%d", $time, clk, datain, dataout);
     end
     
     initial begin
-        #10000 $finish;
+        clk = 0; reset = 0; enable = 0;
+        #5 reset = 1;
+        #10 enable = 1;
+        #1000 $finish;
     end
     
     initial begin
